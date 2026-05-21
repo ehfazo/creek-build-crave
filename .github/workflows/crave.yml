@@ -1,0 +1,36 @@
+name: Trigger Crave Build (for creek)
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "*" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+# 2. Checkout the private repository into a specific folder
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+        with:
+            repository: ehfazo/env
+            token: ${{ secrets.PRIVATE_REPO_PAT }}
+            path: .env
+# 3. Move the crave.conf file to the home directory
+      - name: Move crave.conf to home
+        run: mv .env/creek-build-crave/crave.conf ~/creek.conf
+        shell: bash
+
+# 4. Download crave command line tool
+      - name: Download crave CLI
+        run: |
+          curl -L https://github.com/accupara/crave/releases/download/0.2-7220/crave-0.2-7220-linux-amd64.bin -o ~/crave
+          chmod +x ~/crave
+        shell: bash
+
+# 5. Run the crave build command
+      - name: Run crave build
+        run: ~/crave build --config ~/creek.conf
+        shell: bash
+                  
