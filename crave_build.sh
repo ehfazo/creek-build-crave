@@ -3,8 +3,8 @@
 # Optional: ensure we are in correct directory
 cd "$(dirname "$0")"
 
-if [ ! -f "crave.yaml" ]; then
-    echo "❌ Error: crave.yaml not found!"
+if [ ! -f ".env" ]; then
+    echo "❌ Error: .env not found!"
     exit 1
 fi
 
@@ -35,4 +35,4 @@ send_telegram "$RANDOM_MSG"
 
 # Run your GitHub-hosted script
 echo "🚀 Starting remote build queue..."
-crave run --projectID 93 --no-patch -- 'curl -sf https://raw.githubusercontent.com/nuruszama/crave_build_scripts/lineage-23.2/crave_run.sh | bash'
+crave run --projectID 93 --no-patch -- 'curl -sf https://raw.githubusercontent.com/ehfazo/creek-build-crave/lineage-23.2/run.sh | bash'
