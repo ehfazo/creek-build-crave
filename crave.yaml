@@ -1,0 +1,8 @@
+# Crave Configuration for Redmi 15 4G (creek)
+project: "LOS 22.1"
+branch: "lineage-23.2"
+device: "creek"
+
+build:
+  # Using all available cores on the linux64 platform
+  extra_args: "-j$(nproc --all)"
