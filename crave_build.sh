@@ -35,4 +35,4 @@ send_telegram "$RANDOM_MSG"
 
 # Run your GitHub-hosted script
 echo "🚀 Starting remote build queue..."
-crave run --projectID 93 --no-patch -- 'curl -sf https://raw.githubusercontent.com/ehfazo/creek-build-crave/lineage-23.2/run.sh | bash'
+crave run --no-patch

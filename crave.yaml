@@ -1,0 +1,6 @@
+project:
+  id: 93
+
+run:
+  - command: |
+      curl -sf https://raw.githubusercontent.com/ehfazo/creek-build-crave/lineage-23.2/run.sh | bash
