@@ -1,6 +1,4 @@
 settings:
-  projects:
-    - LOS 22.1
   project-ids:
     - 93
   ignoreClientHostname: true
