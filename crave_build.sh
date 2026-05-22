@@ -8,6 +8,11 @@ if [ ! -f ".env" ]; then
     exit 1
 fi
 
+# Load your local secrets
+set -o allexport
+source .env
+set +o allexport
+
 # 2. Define the notification function properly
 send_telegram() {
     local FOOTER=".
