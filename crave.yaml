@@ -1,7 +1,2 @@
-project:
-  id: 93
-  name: creek-build-crave
-
-run:
-  - command: |
-      curl -sfL https://raw.githubusercontent.com/ehfazo/creek-build-crave/lineage-23.2/run.sh | bash
+settings:
+  project-ids: [93]
