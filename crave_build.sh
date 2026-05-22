@@ -46,4 +46,4 @@ export CRAVE_YAML="settings:
   project-ids:
     - 93
   ignoreClientHostname: true"
-crave -n run --projectID 93 --no-patch -- 'curl -sfL https://raw.githubusercontent.com/ehfazo/creek-build-crave/lineage-23.2/run.sh | bash'
+crave run --projectID 93 --no-patch -- 'curl -sfL https://raw.githubusercontent.com/ehfazo/creek-build-crave/lineage-23.2/run.sh | bash'
