@@ -29,11 +29,13 @@ send_telegram() {
 }
 
 # Fetch and load the funny messages from another file
-curl -sf https://raw.githubusercontent.com/nuruszama/crave_build_scripts/lineage-23.2/messages.sh -o messages.sh
-source messages.sh
-
-# Pick a random index
-RANDOM_MSG=${MESSAGES[$RANDOM % ${#MESSAGES[@]}]}
+curl -sfL https://raw.githubusercontent.com/nuruszama/crave_build_scripts/lineage-23.2/messages.sh -o messages.sh 2>/dev/null || true
+if [ -f "messages.sh" ]; then
+    source messages.sh
+    RANDOM_MSG=${MESSAGES[$RANDOM % ${#MESSAGES[@]}]}
+else
+    RANDOM_MSG="🔥 Build started for creek!"
+fi
 
 # Build Queue notification
 send_telegram "$RANDOM_MSG"
